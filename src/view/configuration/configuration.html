@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Extension Configuration</title>
+  </head>
+  <body class="coral--light">
+    <form>
+      <fieldset>
+      <legend>DialogTech SourceTrak Snippet Configuration</legend>
+      <label>
+        <span class="label">var _stk</span>
+        <input id="stk" style="width: 450px;" placeholder="This value is available in the DialogTech portal under the SourceTrak Application">
+      </label>
+      </fieldset>
+    </form>
+    <div style="text-align: center">
+      <h3>How to find '_stk' value in your DialogTech account</h3>
+      <p>Step 1</p>
+      <img src="../helperScreenshot1.png" style="margin: 10px; border: 2px solid #707d89;" height="75" width="800">
+      <p>Step 2</p>
+      <img src="../helperScreenshot2.png" style="margin: 10px; border: 2px solid #707d89;" height="275" width="733">
+    </div>
+    <script src="https://assets.adobedtm.com/activation/reactor/extensionbridge/extensionbridge.min.js"></script>
+    <script>
+      window.extensionBridge.register({
+        init: function(info) {
+          if (info.settings) {
+            // TODO Populate form values from persisted settings.
+            document.getElementById('stk').value = (info.settings && info.settings.stk) || '';
+          }
+        },
+
+        getSettings: function() {
+          // TODO Return settings object from form values.
+          return {
+            stk: document.getElementById('stk').value || ''
+          };
+        },
+
+        validate: function() {
+          // TODO Return whether settings are valid.
+          var stk = document.getElementById('stk').value;
+          // Check for not empty, no special characters and 40 or less characters
+          return (stk !== '' && /^[a-zA-Z0-9.]*$/.test(stk) && stk.length <= 40);
+        }
+      });
+    </script>
+  </body>
+</html>

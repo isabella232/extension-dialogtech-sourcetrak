@@ -1,0 +1,31 @@
+{
+  "displayName": "DialogTech Sourcetrak Extension",
+  "name": "dialogtech-sourcetrak-extension",
+  "version": "1.0.0",
+  "description": "Include SourceTrak javascript snippet in Adobe Launch",
+  "iconPath": "src/view/Icon_300x300.svg",
+  "author": {
+    "name": "DialogTech"
+  },
+  "viewBasePath": "src/view/",
+  "configuration": {
+    "viewPath": "configuration/configuration.html",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {}
+    }
+  },
+  "actions": [
+    {
+      "displayName": "Onload",
+      "name": "onload",
+      "libPath": "src/lib/actions/onload.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}
